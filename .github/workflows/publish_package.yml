@@ -1,0 +1,29 @@
+name: Publish package to Github Packages registry
+
+on:
+  push:
+    #Triggered when new tags pushed upstream (tags must have semver format)
+    tags:
+    #  - 'v*.*.*'
+      - '*@*'
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@frg-ivan'
+      - run: echo "MODULE_TO_PUBLISH_PATH=$(git tag --points-at HEAD | cut -d@ -f1-1)" >> $GITHUB_ENV
+      - run: echo ${{env.MODULE_TO_PUBLISH_PATH}}
+      - run: npm install
+        working-directory: CoreBuild/Packages/${{env.MODULE_TO_PUBLISH_PATH}}
+      - run: npm publish
+        working-directory: CoreBuild/Packages/${{env.MODULE_TO_PUBLISH_PATH}}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
