@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Net;
+using UnityEditor;
 using UnityEngine;
 
 namespace FRG.Core
@@ -7,6 +8,8 @@ namespace FRG.Core
     public class DummyOneEditor : UnityEditor.Editor
     {
         static readonly GUIContent content = new GUIContent("Dummy One");
+        
+        KUNA //compilation error
 
         public override void OnInspectorGUI()
         {
