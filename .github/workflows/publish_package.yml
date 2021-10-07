@@ -54,11 +54,11 @@ jobs:
 #        with:
 #          name: Test results (all modes)
 #          path: ${{ steps.testRunner.outputs.artifactsPath }}
-#      - uses: game-ci/unity-builder@v2
-#        with:
-#          projectPath: ${{ matrix.projectPath }}
-#          targetPlatform: ${{ matrix.targetPlatform }}
-#          customParameters: "-myParameter myValue -myBoolean -ThirdParameter andItsValue"
+      - uses: game-ci/unity-builder@v2
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          customParameters: "-myParameter myValue -myBoolean -ThirdParameter andItsValue"
 #      - uses: actions/upload-artifact@v2
 #        with:
 #          name: Build (${{ matrix.targetPlatform }})
