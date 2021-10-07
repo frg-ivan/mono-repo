@@ -4,7 +4,7 @@ on:
   push:
     #Triggered when new tags pushed upstream (tags must have semver format)
     tags:
-    #  - 'v*.*.*'
+      #  - 'v*.*.*'
       - '*@*'
 
 jobs:
@@ -46,29 +46,29 @@ jobs:
           restore-keys: |
             Library-${{ matrix.projectPath }}-buildAndTest-
             Library-${{ matrix.projectPath }}-
-#      - uses: game-ci/unity-test-runner@v2
-#        id: testRunner
-#        with:
-#          projectPath: ${{ matrix.projectPath }}
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: Test results (all modes)
-#          path: ${{ steps.testRunner.outputs.artifactsPath }}
+      #      - uses: game-ci/unity-test-runner@v2
+      #        id: testRunner
+      #        with:
+      #          projectPath: ${{ matrix.projectPath }}
+      #      - uses: actions/upload-artifact@v2
+      #        with:
+      #          name: Test results (all modes)
+      #          path: ${{ steps.testRunner.outputs.artifactsPath }}
       - uses: game-ci/unity-builder@v2
         with:
           projectPath: ${{ matrix.projectPath }}
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: "-myParameter myValue -myBoolean -ThirdParameter andItsValue"
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: Build (${{ matrix.targetPlatform }})
-#          path: build/${{ matrix.targetPlatform }}
+  #      - uses: actions/upload-artifact@v2
+  #        with:
+  #          name: Build (${{ matrix.targetPlatform }})
+  #          path: build/${{ matrix.targetPlatform }}
   publish-single-core-module:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -77,9 +77,9 @@ jobs:
       - run: echo "MODULE_TO_PUBLISH_PATH=$(git tag --points-at HEAD | cut -d@ -f1-1)" >> $GITHUB_ENV
       - run: echo ${{env.MODULE_TO_PUBLISH_PATH}}
       - run: npm install
-        working-directory: CoreBuild/Packages/${{env.MODULE_TO_PUBLISH_PATH}}
+        working-directory: CoreBuild/Assets/CorePackages/${{env.MODULE_TO_PUBLISH_PATH}}
       - run: npm publish
-        working-directory: CoreBuild/Packages/${{env.MODULE_TO_PUBLISH_PATH}}
+        working-directory: CoreBuild/Assets/CorePackages/${{env.MODULE_TO_PUBLISH_PATH}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
