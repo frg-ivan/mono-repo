@@ -1,8 +1,8 @@
 {
-	"name": "@frg-ivan/com.company.core.monomachine",
-	"version": "0.8.0",
+	"name": "com.company.core.monomachine",
+	"version": "0.9.0",
 	"displayName": "MonoMachine",
-	"description": "MonoMachine description.",
+	"description": "MonoMachine description 2.",
 	"keywords": [],
 	"type": "tool",
 	"publishConfig": {
@@ -14,8 +14,8 @@
 	},
 	"scripts": {
 		"info": "echo %npm_package_name%@%npm_package_version%",
-		"build": "node build.js",
-		"push": "(git push --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
+		"release": "node release.js",
+		"publish": "(git push --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
 	},
 	"dependencies": {}
 }

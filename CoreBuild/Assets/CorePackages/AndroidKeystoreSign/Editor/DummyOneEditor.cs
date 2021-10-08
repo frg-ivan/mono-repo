@@ -9,7 +9,7 @@ namespace FRG.Core
     {
         static readonly GUIContent content = new GUIContent("Dummy One");
         
-        KUNA //compilation error
+        // KUNA //compilation error
 
         public override void OnInspectorGUI()
         {
