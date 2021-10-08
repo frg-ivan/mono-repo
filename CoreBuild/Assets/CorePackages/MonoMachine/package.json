@@ -1,6 +1,6 @@
 {
 	"name": "com.company.core.monomachine",
-	"version": "0.13.0",
+	"version": "0.14.0",
 	"displayName": "MonoMachine",
 	"description": "MonoMachine description 2.",
 	"keywords": [],
@@ -9,9 +9,7 @@
 		"registry": "https://npm.pkg.github.com/@frg-ivan"
 	},
 	"repository": {
-		"type": "git",
-		"url": "ssh://github.com:frg-ivan/mono-repo.git",
-		"directory": "com.company.core.<packagename>"
+		"url": "ssh://github.com:frg-ivan/mono-repo.git"
 	},
 	"scripts": {
 		"info": "echo %npm_package_name%@%npm_package_version%",
