@@ -1,6 +1,6 @@
 {
 	"name": "com.company.core.monomachine",
-	"version": "0.11.0",
+	"version": "0.12.0",
 	"displayName": "MonoMachine",
 	"description": "MonoMachine description 2.",
 	"keywords": [],
@@ -15,7 +15,7 @@
 	"scripts": {
 		"info": "echo %npm_package_name%@%npm_package_version%",
 		"release": "node release.js",
-		"publish": "(git push --quiet) & (git pull --tags --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
+		"publish2": "(git push --quiet) & (git pull --tags --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
 	},
 	"dependencies": {}
 }
