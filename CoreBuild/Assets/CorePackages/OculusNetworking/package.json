@@ -1,6 +1,6 @@
 {
 	"name": "com.company.core.oculusnetworking",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"displayName": "OculusNetworking",
 	"description": "OculusNetworking description.",
 	"keywords": [],
@@ -16,7 +16,5 @@
 		"core-release": "node core-release.js",
 		"core-publish": "(git push --quiet) & (git pull --tags --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
 	},
-	"dependencies": {
-		"com.company.core.monomachine": "0.14.0"
-	}
+	"dependencies": {}
 }
