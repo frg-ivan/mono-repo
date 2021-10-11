@@ -1,6 +1,6 @@
 {
-	"name": "@frg-ivan/com.company.core.oculusnetworking",
-	"version": "0.2.0",
+	"name": "com.company.core.oculusnetworking",
+	"version": "0.3.0",
 	"displayName": "OculusNetworking",
 	"description": "OculusNetworking description.",
 	"keywords": [],
@@ -9,13 +9,14 @@
 		"registry": "https://npm.pkg.github.com/@frg-ivan"
 	},
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/frg-ivan/mono-repo.git"
+		"url": "ssh://github.com:frg-ivan/mono-repo.git"
 	},
 	"scripts": {
 		"info": "echo %npm_package_name%@%npm_package_version%",
-		"build": "node build.js",
-		"push": "(git push --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
+		"core-release": "node core-release.js",
+		"core-publish": "(git push --quiet) & (git pull --tags --quiet) & (git push --tags --quiet) & (echo Published %npm_package_name%@%npm_package_version%)"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"com.company.core.monomachine": "0.2.0"
+	}
 }
